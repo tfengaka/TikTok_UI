@@ -3,6 +3,7 @@
 
 :root {
   --primary: #fe2c55;
+  --black: #000000;
   --header-height: 60px;
   --default-layout-width: 1250px;
 }
@@ -22,7 +23,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
