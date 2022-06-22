@@ -140,7 +140,19 @@
     background: rgba(22, 24, 35, 0.12);
   }
 }
-
+.actions {
+  display: flex;
+  align-items: center;
+  &_more {
+    position: relative;
+    &_btn {
+      font-size: 20px;
+      background-color: transparent;
+      margin-left: 24px;
+      cursor: pointer;
+    }
+  }
+}
 @keyframes circleLoading {
   to {
     transform: rotate(360deg);

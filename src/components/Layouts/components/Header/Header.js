@@ -1,4 +1,10 @@
-import { faCircleCheck, faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleCheck,
+  faCircleNotch,
+  faCircleXmark,
+  faEllipsisVertical,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React from 'react';
@@ -14,7 +20,7 @@ function Header() {
   const [searchResults, setSearchResults] = React.useState([]);
 
   React.useEffect(() => {
-    setSearchResults([]);
+    setSearchResults([1, 2]);
   }, []);
 
   return (
@@ -78,6 +84,16 @@ function Header() {
             Tải lên
           </Button>
           <Button styled="solid">Đăng nhập</Button>
+          <div className={cx('actions_more')}>
+            <button className={cx('actions_more_btn')}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+            <DropdownWrapper>
+              <div className={cx('actions_more_dropdown')}>
+                <div className={cx('search_account_title')}>Accounts</div>
+              </div>
+            </DropdownWrapper>
+          </div>
         </div>
       </div>
     </header>
