@@ -143,6 +143,7 @@
 .actions {
   display: flex;
   align-items: center;
+  gap: 16px;
   &_more {
     position: relative;
     &_btn {

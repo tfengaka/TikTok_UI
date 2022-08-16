@@ -4,6 +4,7 @@ import {
   faCircleXmark,
   faEllipsisVertical,
   faMagnifyingGlass,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
@@ -80,10 +81,12 @@ function Header() {
           )}
         </div>
         <div className={cx('actions')}>
-          <Button styled="text" to="/upload">
-            Tải lên
+          <Button styled="outline" to="/upload" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+            Upload
           </Button>
-          <Button styled="solid">Đăng nhập</Button>
+          <Button styled="solid" primary>
+            Log in
+          </Button>
           <div className={cx('actions_more')}>
             <button className={cx('actions_more_btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />

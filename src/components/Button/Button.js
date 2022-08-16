@@ -5,22 +5,12 @@ import { Link } from 'react-router-dom';
 
 const cx = className.bind(styles);
 
-function Button({
-  children,
-  styled = 'solid',
-  size = 'md',
-  leftIcon,
-  rightIcon,
-  disabled,
-  to,
-  href,
-  onClick,
-  ...rest
-}) {
+function Button({ children, styled = 'solid', size = 'md', primary, leftIcon, rightIcon, disabled, to, href, onClick, ...rest }) {
   let Element = 'button';
   const classes = cx('wrapper', {
     [styled]: styled,
     [size]: size,
+    primary: primary ? 'primary' : '',
     disabled,
   });
   const eleProps = {

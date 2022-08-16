@@ -6,79 +6,88 @@
   background-color: transparent;
   user-select: none;
   cursor: pointer;
+}
 
-  &.solid {
-    font-weight: 700;
+.solid {
+  font-weight: 700;
+  border: none;
+  &.primary {
     background-color: var(--primary);
     color: var(--white);
-    border: none;
     &:hover {
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
   }
-  &.outline {
-    font-weight: 600;
-    border: 1px solid var(--primary);
+}
+.outline {
+  font-weight: 600;
+  border: 1px solid;
+  border-color: rgba(22, 24, 35, 0.12);
+  &.primary {
     color: var(--primary);
-    background-color: var(--white);
+    border-color: var(--primary);
     &:hover {
       background-color: rgba(254, 44, 85, 0.06);
     }
   }
-  &.disabled {
-    opacity: 0.5;
-    pointer-events: none;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
   }
-  &.text {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 22px;
-    padding: 0 !important;
-    margin: 0 !important;
+}
+
+.rounded {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 0 16px;
+  min-width: 90px;
+  background-color: #ffffff;
+  color: rgba(22, 24, 35, 0.75);
+  height: 32px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  border-radius: 52px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  &.primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
     &:hover {
-      text-decoration: underline;
+      background-color: rgba(254, 44, 85, 0.06);
     }
   }
-  &.lg {
-    font-size: 18px;
-    line-height: 25px;
-    min-width: 168px;
-    min-height: 48px;
-    padding: 9px 16px;
+  &:hover {
+    border-color: rgba(22, 24, 35, 0.2);
+    background-color: rgba(22, 24, 35, 0.03);
   }
-  &.md {
-    font-size: 16px;
-    line-height: 22px;
-    min-width: 100px;
-    min-height: 36px;
-    padding: 6px 8px;
-  }
-  &.sm {
-    font-size: 16px;
-    padding: 0 10px;
-    min-height: 28px;
-  }
-  &.rounded {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 30px;
-    padding: 0 16px;
-    min-width: 90px;
-    background-color: rgba(255, 255, 255, 1);
-    color: rgba(22, 24, 35, 0.75);
-    height: 32px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-    border-radius: 52px;
-    cursor: pointer;
-    text-align: center;
-    border: 1px solid rgba(22, 24, 35, 0.12);
-    &:hover {
-      border-color: rgba(22, 24, 35, 0.2);
-      background-color: rgba(22, 24, 35, 0.03);
-    }
-  }
-  .icon + .title,
-  .title + .icon {
-    margin-left: 6px;
-  }
+}
+
+.lg {
+  font-size: 18px;
+  line-height: 25px;
+  min-width: 168px;
+  min-height: 48px;
+  padding: 9px 16px;
+}
+.md {
+  font-size: 16px;
+  line-height: 22px;
+  min-width: 100px;
+  min-height: 36px;
+  padding: 6px 8px;
+}
+.sm {
+  font-size: 16px;
+  padding: 0 10px;
+  min-height: 28px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.icon + .title,
+.title + .icon {
+  margin-left: 6px;
 }
