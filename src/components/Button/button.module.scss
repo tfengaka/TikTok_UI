@@ -5,9 +5,16 @@
   border-radius: 4px;
   background-color: transparent;
   user-select: none;
+  text-align: center;
   cursor: pointer;
 }
-
+.none {
+  background-color: transparent;
+  font-weight: 600;
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+}
 .solid {
   font-weight: 700;
   border: none;
@@ -85,6 +92,11 @@
 .disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.icon {
+  display: block;
+  width: 24px;
 }
 
 .icon + .title,

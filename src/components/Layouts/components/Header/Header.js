@@ -1,28 +1,50 @@
-import {
-  faCircleCheck,
-  faCircleNotch,
-  faCircleXmark,
-  faEllipsisVertical,
-  faMagnifyingGlass,
-  faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faEarthAsia, faEllipsisVertical, faKeyboard, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import images from '~/assets/images';
 import Button from '~/components/Button/Button';
-import { Wrapper as DropdownWrapper } from '~/components/Dropdown';
+import { Menu } from '~/components/Dropdown';
+import Searching from '../Seaching/Searching';
 import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Header() {
-  const [searchResults, setSearchResults] = React.useState([]);
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          type: 'language',
+          code: 'en',
+          title: 'English',
+        },
+        {
+          type: 'language',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+      ],
+    },
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: 'Feedback and help',
+    to: '/feedback',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: 'Keyboard shortcuts',
+  },
+];
 
-  React.useEffect(() => {
-    setSearchResults([1, 2]);
-  }, []);
+function Header() {
+  const handleMenuChange = (item) => {
+    console.log(item);
+  };
 
   return (
     <header className={cx('wrapper')}>
@@ -30,56 +52,7 @@ function Header() {
         <Link to="/" className={cx('logo')}>
           <img src={images.logo.default} alt="" />
         </Link>
-        <div className={cx('search')}>
-          <input type="text" placeholder="Tìm kiếm tài khoản và video" spellCheck={false} />
-          <div className={cx('input_action')}>
-            <button className={cx('clear')}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />
-          </div>
-          <span className={cx('splitter')}></span>
-          <button className={cx('search_btn')}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
-          {searchResults.length > 0 && (
-            <DropdownWrapper>
-              <div className={cx('search_account')}>
-                <div className={cx('search_account_title')}>Accounts</div>
-                <div className={cx('search_account_item')}>
-                  <div className={cx('avatar')}>
-                    <img
-                      src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/4fef3f0e47016f7da8a20669951d429f~c5_300x300.webp?x-expires=1652187600&x-signature=lvHL9gNLCKCScL2E5UeX5wqyvjk%3D"
-                      alt="avatar"
-                    />
-                  </div>
-                  <div className={cx('info')}>
-                    <h4 className={cx('info_name')}>
-                      hoa_2309
-                      <FontAwesomeIcon icon={faCircleCheck} className={cx('info_verified')} />
-                    </h4>
-                    <p className={cx('info_desc')}>Ngô Ngọc Hoà🦄</p>
-                  </div>
-                </div>
-                <div className={cx('search_account_item')}>
-                  <div className={cx('avatar')}>
-                    <img
-                      src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/4fef3f0e47016f7da8a20669951d429f~c5_300x300.webp?x-expires=1652187600&x-signature=lvHL9gNLCKCScL2E5UeX5wqyvjk%3D"
-                      alt="avatar"
-                    />
-                  </div>
-                  <div className={cx('info')}>
-                    <h4 className={cx('info_name')}>
-                      hoa_2309
-                      <FontAwesomeIcon icon={faCircleCheck} className={cx('info_verified')} />
-                    </h4>
-                    <p className={cx('info_desc')}>Ngô Ngọc Hoà🦄</p>
-                  </div>
-                </div>
-              </div>
-            </DropdownWrapper>
-          )}
-        </div>
+        <Searching />
         <div className={cx('actions')}>
           <Button styled="outline" to="/upload" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
             Upload
@@ -87,16 +60,11 @@ function Header() {
           <Button styled="solid" primary>
             Log in
           </Button>
-          <div className={cx('actions_more')}>
-            <button className={cx('actions_more_btn')}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+            <button className={cx('button')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
-            <DropdownWrapper>
-              <div className={cx('actions_more_dropdown')}>
-                <div className={cx('search_account_title')}>Accounts</div>
-              </div>
-            </DropdownWrapper>
-          </div>
+          </Menu>
         </div>
       </div>
     </header>

@@ -1,0 +1,32 @@
+.menu {
+  width: 225px;
+  &_wrapper {
+    padding-bottom: 8px;
+  }
+  &_item {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 16px;
+  }
+}
+
+.header {
+  position: relative;
+  height: 42px;
+  width: 100%;
+  margin-top: -8px;
+  .rollback {
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
