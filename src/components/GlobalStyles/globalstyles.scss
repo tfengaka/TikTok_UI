@@ -94,19 +94,21 @@ h6 {
 // Custom tippy tooltip
 body {
   .tippy-box {
+    height: 38px;
+    max-width: 250px;
     border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-    background-color: rgba(84, 84, 84, 0.92);
+    font-weight: 700;
+    font-size: 16px;
+    background-color: rgb(124, 124, 124);
+    color: rgb(255, 255, 255);
   }
 
   .tippy-arrow {
-    color: rgba(84, 84, 84, 0.92);
+    color: rgba(124, 124, 124);
   }
 
   .tippy-content {
-    padding: 8px 9px;
+    padding: 8px;
   }
 
   .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {

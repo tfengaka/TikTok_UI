@@ -24,6 +24,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
   return (
     <HeadlessTippy
       delay={[0, 700]}
+      offset={[24, 10]}
       interactive
       placement="bottom-end"
       render={(attrs) => (
@@ -37,6 +38,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
           </DropdownWrapper>
         </div>
       )}
+      onHide={() => setHistory((prev) => prev.slice(0, 1))}
     >
       {children}
     </HeadlessTippy>

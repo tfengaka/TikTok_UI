@@ -1,14 +1,27 @@
 .menu {
+  position: relative;
   width: 225px;
   &_wrapper {
     padding-bottom: 8px;
   }
   &_item {
+    border-radius: none;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 10px 16px;
+  }
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -8px;
+    right: 32px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
   }
 }
 
@@ -29,4 +42,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+.divider {
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
