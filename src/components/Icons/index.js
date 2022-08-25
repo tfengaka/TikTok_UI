@@ -1,0 +1,10 @@
+export { default as MessagesIcon } from './Message';
+export { default as InboxIcon } from './Inbox';
+export { default as PlusIcon } from './Plus';
+export { default as LanguageIcon } from './Language';
+export { default as FeedbackIcon } from './Feedback';
+export { default as KeyboardIcon } from './Keyboard';
+export { default as ProfileIcon } from './Profile';
+export { default as CoinsIcon } from './Coins';
+export { default as SettingIcon } from './Settings';
+export { default as LogoutIcon } from './LogOut';

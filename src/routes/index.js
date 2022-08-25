@@ -6,7 +6,7 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 
 // * Layout
-import { SecondaryLayout } from '~/components/Layouts';
+import { SecondaryLayout } from '~/Layouts';
 
 const publicRoutes = [
   { path: '/', component: Home },
