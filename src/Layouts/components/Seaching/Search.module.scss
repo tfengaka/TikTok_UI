@@ -10,6 +10,12 @@
   transition: all 0.32s ease;
   &_result {
     width: 361px;
+    &_desc {
+      font-size: 16px;
+      color: var(--text-color);
+      margin-bottom: 4px;
+      padding: 6px 16px;
+    }
   }
   input {
     flex: 1;
@@ -36,6 +42,12 @@
       font-size: 14px;
       color: rgba(22, 24, 35, 0.34);
       margin: 0 12px;
+    }
+    .clear {
+      cursor: pointer;
+      &:hover {
+        color: rgba(22, 24, 35, 0.6);
+      }
     }
     .loading {
       animation: circleLoading 1s forwards infinite linear;

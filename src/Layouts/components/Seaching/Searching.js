@@ -2,16 +2,53 @@ import { faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/fr
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { searchingUsers } from '~/api/searchApi';
 import AccountItem from '~/components/AccountItem';
 import { DropdownWrapper } from '~/components/Dropdown';
+import { useDebounce } from '~/hooks';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 function Searching() {
+  const [searchQuery, setSearchQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState([]);
-  const [showResult, setShowResult] = React.useState(false);
+  const [showResult, setShowResult] = React.useState(true);
   const [isLoading, setIsLoading] = React.useState(false);
+  const debounceQuery = useDebounce(searchQuery, 500);
+  const searchInputRef = useRef(null);
+
+  useEffect(() => {
+    (async function getSearchResults() {
+      if (!debounceQuery.trim()) {
+        setShowResult(false);
+        setSearchResults([]);
+        return;
+      }
+      setIsLoading(true);
+      try {
+        const results = await searchingUsers(debounceQuery, 'less');
+        if (results && results.data.length > 0) {
+          setSearchResults(results.data);
+          setShowResult(true);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [debounceQuery]);
+
+  const handleClearSearchInput = () => {
+    setSearchQuery('');
+    setSearchResults([]);
+    searchInputRef.current.focus();
+  };
+
+  const handleHidedSearchResult = () => {
+    setShowResult(false);
+  };
 
   return (
     <div>
@@ -28,17 +65,27 @@ function Searching() {
                   <AccountItem key={index} data={result} />
                 ))}
               </div>
+              <h3 className={cx('search_result_desc')}>{`View all results for "${searchQuery}"`}</h3>
             </DropdownWrapper>
           </div>
         )}
+        onClickOutside={handleHidedSearchResult}
       >
         <div className={cx('search')}>
-          <input type="text" placeholder="Tìm kiếm tài khoản và video" spellCheck={false} />
+          <input
+            type="text"
+            placeholder="Tìm kiếm tài khoản và video"
+            spellCheck={false}
+            ref={searchInputRef}
+            value={searchQuery}
+            onFocus={() => setShowResult(true)}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <div className={cx('input_action')}>
             {isLoading ? (
               <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />
             ) : (
-              <button className={cx('clear')}>
+              <button className={cx('clear')} onClick={() => handleClearSearchInput()}>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </button>
             )}

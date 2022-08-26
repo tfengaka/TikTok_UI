@@ -120,7 +120,7 @@ function Header() {
             {isLoggedIn ? (
               <div className={cx('avatar')}>
                 <ViewImage
-                  src="https://p16-sig-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1682072296970242.jpeg?x-expires=1661457600&x-signature=K6VcHyMKANk6XK1mS%2Fy%2BtCste1A%3D"
+                  src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
                   alt="avatar"
                 />
               </div>

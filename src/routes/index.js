@@ -11,7 +11,7 @@ import { SecondaryLayout } from '~/Layouts';
 const publicRoutes = [
   { path: '/', component: Home },
   { path: '/following', component: Following },
-  { path: '/profile', component: Profile },
+  { path: '/@:nickname', component: Profile },
   { path: '/upload', component: Upload, layout: SecondaryLayout },
   { path: '/search', component: Search, layout: null },
 ];
