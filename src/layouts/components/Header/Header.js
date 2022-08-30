@@ -4,9 +4,11 @@ import TippyToolTip from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import config from '~/config';
 import images from '~/assets/images';
 import Button from '~/components/Button/Button';
-import { Menu } from '~/components/Dropdown';
+import Menu from '~/components/Menu';
 import {
   CoinsIcon,
   FeedbackIcon,
@@ -89,7 +91,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Link to="/" className={cx('logo')}>
+        <Link to={config.routing.Home} className={cx('logo')}>
           <img src={images.logo} alt="" />
         </Link>
         <Searching />

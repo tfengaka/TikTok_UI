@@ -1,14 +1,14 @@
 import HeadlessTippy from '@tippyjs/react/headless';
-import { DropdownWrapper } from '~/components/Dropdown';
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
-import MenuItem from './MenuItem';
-import MenuHeader from './MenuHeader';
 import { useState } from 'react';
+import { DropdownWrapper } from '~/components/Dropdown';
+import styles from './Menu.module.scss';
+import MenuHeader from './MenuHeader';
+import MenuItem from './MenuItem';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange = () => {} }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = () => {} }) {
   const [history, setHistory] = useState([{ data: items }]);
 
   const currentMenu = history[history.length - 1];
@@ -25,6 +25,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
     <HeadlessTippy
       delay={[0, 700]}
       offset={[24, 10]}
+      hideOnClick={hideOnClick}
       interactive
       placement="bottom-end"
       render={(attrs) => (
@@ -33,8 +34,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
             {history.length > 1 && (
               <MenuHeader title={currentMenu.title} onForward={() => setHistory((prev) => prev.slice(0, prev.length - 1))} />
             )}
-
-            {renderItems()}
+            <div className={cx('menu_body')}>{renderItems()}</div>
           </DropdownWrapper>
         </div>
       )}

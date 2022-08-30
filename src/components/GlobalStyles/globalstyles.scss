@@ -7,7 +7,7 @@
   --text-color: #161823;
   --font-family: "ProximaNova", sans-serif;
 
-  // Default Layout
+  //* Default Layout size
   --header-height: 60px;
   --default-layout-width: 1250px;
   --default-layout-spacing: 24px;
@@ -27,12 +27,26 @@ html,
 body {
   height: 100%;
 }
+html * {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: transparent;
+  }
+}
 body {
   font-family: var(--font-family);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-y: overlay;
 }
 
 img,

@@ -1,0 +1,53 @@
+.menu {
+  position: relative;
+  width: 225px;
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -8px;
+    right: 32px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+  }
+  &_wrapper {
+    padding-bottom: 8px;
+  }
+  &_body {
+    overflow-y: auto;
+    max-height: min((100vh - 96px) - 102px, 632px);
+  }
+  &_item {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: none;
+  }
+  .header {
+    position: relative;
+    height: 42px;
+    width: 100%;
+    margin-top: -8px;
+    .rollback {
+      width: 50px;
+      height: 100%;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    &_title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.divider {
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+}

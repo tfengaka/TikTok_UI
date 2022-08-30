@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import React, { useEffect, useRef } from 'react';
-import { searchingUsers } from '~/api/searchApi';
+import { searchingUsers } from '~/apis/searchApi';
 import AccountItem from '~/components/AccountItem';
 import { DropdownWrapper } from '~/components/Dropdown';
 import { useDebounce } from '~/hooks';
@@ -50,7 +50,15 @@ function Searching() {
     setShowResult(false);
   };
 
+  const handleChangeInput = (event) => {
+    const searchValue = event.target.value;
+    if (!searchValue.startsWith(' ')) {
+      setSearchQuery(searchValue);
+    }
+  };
+
   return (
+    //* Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
     <div>
       <HeadlessTippy
         interactive
@@ -65,7 +73,7 @@ function Searching() {
                   <AccountItem key={index} data={result} />
                 ))}
               </div>
-              <h3 className={cx('search_result_desc')}>{`View all results for "${searchQuery}"`}</h3>
+              <div className={cx('search_result_desc')}>{`View all results for "${searchQuery}"`}</div>
             </DropdownWrapper>
           </div>
         )}
@@ -79,7 +87,7 @@ function Searching() {
             ref={searchInputRef}
             value={searchQuery}
             onFocus={() => setShowResult(true)}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleChangeInput}
           />
           <div className={cx('input_action')}>
             {isLoading ? (
@@ -91,7 +99,7 @@ function Searching() {
             )}
           </div>
           <span className={cx('splitter')}></span>
-          <button className={cx('search_btn')}>
+          <button className={cx('search_btn')} onMouseDown={(e) => e.preventDefault()}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>
