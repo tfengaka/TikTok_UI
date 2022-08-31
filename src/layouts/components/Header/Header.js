@@ -1,14 +1,10 @@
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TippyToolTip from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import config from '~/config';
 import images from '~/assets/images';
-import Button from '~/components/Button/Button';
-import Menu from '~/components/Menu';
+import Button from '~/components/Button';
 import {
   CoinsIcon,
   FeedbackIcon,
@@ -20,11 +16,13 @@ import {
   ProfileIcon,
   SettingIcon,
 } from '~/components/Icons';
+import Menu from '~/components/Menu';
+import ToolTipButton from '~/components/ToolTipButton';
 import ViewImage from '~/components/ViewImage';
-
+import config from '~/config';
 import Searching from '../Seaching/Searching';
-import styles from './Header.module.scss';
 
+import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 const BASE_MENU_ITEMS = [
@@ -102,23 +100,22 @@ function Header() {
           </Button>
           {isLoggedIn ? (
             <React.Fragment>
-              <TippyToolTip content="Messages" placement="bottom">
-                <button className={cx('button')}>
-                  <MessagesIcon />
-                </button>
-              </TippyToolTip>
-              <TippyToolTip content="Inbox" placement="bottom">
-                <button className={cx('button')}>
-                  <InboxIcon />
-                </button>
-              </TippyToolTip>
+              <ToolTipButton content="Messages" notifyCount={5}>
+                <MessagesIcon />
+              </ToolTipButton>
+              <ToolTipButton content="Inbox" notifyCount={5}>
+                <InboxIcon />
+              </ToolTipButton>
             </React.Fragment>
           ) : (
             <Button styled="solid" primary>
               Log in
             </Button>
           )}
-          <Menu items={isLoggedIn ? LOGGED_MENU_ITEMS : BASE_MENU_ITEMS} onChange={handleMenuChange}>
+          <Menu
+            items={isLoggedIn ? LOGGED_MENU_ITEMS : BASE_MENU_ITEMS}
+            onChange={handleMenuChange}
+          >
             {isLoggedIn ? (
               <div className={cx('avatar')}>
                 <ViewImage
@@ -127,7 +124,7 @@ function Header() {
                 />
               </div>
             ) : (
-              <button className={cx('button', 'dots')}>
+              <button className={cx('dots_btn')}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />
               </button>
             )}

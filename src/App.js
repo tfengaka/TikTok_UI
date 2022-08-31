@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import MainLayout from '~/layouts';
 import { Fragment } from 'react';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
-        <Routes>
+        <Switch>
           {publicRoutes.map((route, index) => {
             const Page = route.component;
             let Layout = MainLayout;
@@ -28,9 +28,9 @@ function App() {
               />
             );
           })}
-        </Routes>
+        </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

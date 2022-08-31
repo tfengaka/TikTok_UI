@@ -4,16 +4,17 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import React, { useEffect, useRef } from 'react';
 import { searchingUsers } from '~/apis/searchApi';
-import AccountItem from '~/components/AccountItem';
 import { DropdownWrapper } from '~/components/Dropdown';
 import { useDebounce } from '~/hooks';
+import AccountList from './components/AccountList';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
+
 function Searching() {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [searchResults, setSearchResults] = React.useState([]);
-  const [showResult, setShowResult] = React.useState(true);
+  const [showResult, setShowResult] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const debounceQuery = useDebounce(searchQuery, 500);
   const searchInputRef = useRef(null);
@@ -69,11 +70,11 @@ function Searching() {
             <DropdownWrapper>
               <div className={cx('search_account')}>
                 <h4 className={cx('search_account_title')}>Accounts</h4>
-                {searchResults.map((result, index) => (
-                  <AccountItem key={index} data={result} />
-                ))}
+                <AccountList data={searchResults} />
               </div>
-              <div className={cx('search_result_desc')}>{`View all results for "${searchQuery}"`}</div>
+              <div
+                className={cx('search_result_desc')}
+              >{`View all results for "${searchQuery}"`}</div>
             </DropdownWrapper>
           </div>
         )}

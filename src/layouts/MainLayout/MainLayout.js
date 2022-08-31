@@ -1,8 +1,7 @@
-import React from 'react';
+import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import Header from '../components/Header/Header';
 import SideBar from '../components/SideBar/SideBar';
-
-import classNames from 'classnames/bind';
 import styles from './MainLayout.module.scss';
 
 const cx = classNames.bind(styles);
@@ -19,4 +18,7 @@ function MainLayout({ children }) {
   );
 }
 
+MainLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 export default MainLayout;

@@ -26,17 +26,15 @@
 .actions {
   display: flex;
   align-items: center;
-  column-gap: 16px;
+  gap: 16px;
 
-  .button {
+  .dots_btn {
     background-color: transparent;
+    font-size: 24px;
+    padding: 0 8px;
+    padding-top: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    &.dots {
-      font-size: 24px;
-      padding: 0 8px;
-      padding-top: 4px;
-      border-radius: 8px;
-    }
   }
   .avatar {
     width: 32px;
