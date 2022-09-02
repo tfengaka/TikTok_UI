@@ -47,9 +47,9 @@
   }
   .input_action {
     display: none;
+    margin: auto;
     .clear,
     .loading {
-      font-size: 14px;
       color: rgba(22, 24, 35, 0.34);
       margin: 0 12px;
     }
@@ -58,9 +58,6 @@
       &:hover {
         color: rgba(22, 24, 35, 0.6);
       }
-    }
-    .loading {
-      animation: circleLoading 1s forwards infinite linear;
     }
   }
   &:focus-within {

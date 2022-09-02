@@ -1,18 +1,14 @@
 import config from '~/config';
 import { SecondaryLayout } from '~/layouts';
-
-import Following from '~/pages/Following';
-import Home from '~/pages/Home';
-import Profile from '~/pages/Profile';
-import Search from '~/pages/Search';
-import Upload from '~/pages/Upload';
+import { FollowingPage, HomePage, LivePage, ProfilePage, SearchPage, UploadPage } from '~/pages';
 
 const publicRoutes = [
-  { path: config.routing.Home, component: Home },
-  { path: config.routing.Following, component: Following },
-  { path: config.routing.Profile, component: Profile },
-  { path: config.routing.Upload, component: Upload, layout: SecondaryLayout },
-  { path: config.routing.Search, component: Search, layout: null },
+  { path: config.routing.Home, component: HomePage },
+  { path: config.routing.Following, component: FollowingPage },
+  { path: config.routing.Profile, component: ProfilePage },
+  { path: config.routing.Upload, component: UploadPage, layout: SecondaryLayout },
+  { path: config.routing.Search, component: SearchPage, layout: null },
+  { path: config.routing.Live, component: LivePage },
 ];
 const privateRoutes = {};
 

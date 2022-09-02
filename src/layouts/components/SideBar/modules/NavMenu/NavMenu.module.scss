@@ -1,0 +1,24 @@
+.nav_menu {
+  margin-bottom: 8px;
+}
+
+.nav_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 8px;
+  transition: background ease-in-out 200ms;
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+  .title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  &.active {
+    color: var(--primary);
+  }
+}

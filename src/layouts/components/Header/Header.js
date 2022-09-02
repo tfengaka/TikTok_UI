@@ -1,20 +1,20 @@
-import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import {
-  CoinsIcon,
-  FeedbackIcon,
-  InboxIcon,
-  KeyboardIcon,
-  LanguageIcon,
-  LogoutIcon,
-  MessagesIcon,
-  ProfileIcon,
-  SettingIcon,
+  Coins,
+  DotsVertical,
+  Feedback,
+  Inbox,
+  Keyboard,
+  Languages,
+  LogOut,
+  Messages,
+  Plus,
+  Profile,
+  Settings,
 } from '~/components/Icons';
 import Menu from '~/components/Menu';
 import ToolTipButton from '~/components/ToolTipButton';
@@ -27,7 +27,7 @@ const cx = classNames.bind(styles);
 
 const BASE_MENU_ITEMS = [
   {
-    icon: <LanguageIcon />,
+    icon: <Languages />,
     title: 'English',
     children: {
       title: 'Language',
@@ -46,34 +46,34 @@ const BASE_MENU_ITEMS = [
     },
   },
   {
-    icon: <FeedbackIcon />,
+    icon: <Feedback />,
     title: 'Feedback and help',
     to: '/feedback',
   },
   {
-    icon: <KeyboardIcon />,
+    icon: <Keyboard />,
     title: 'Keyboard shortcuts',
   },
 ];
 
 const LOGGED_MENU_ITEMS = [
   {
-    icon: <ProfileIcon />,
+    icon: <Profile />,
     title: 'View profile',
     to: '/profile/me',
   },
   {
-    icon: <CoinsIcon />,
+    icon: <Coins />,
     title: 'Get coins',
   },
   {
-    icon: <SettingIcon />,
+    icon: <Settings />,
     title: 'Settings',
     to: '/settings',
   },
   ...BASE_MENU_ITEMS,
   {
-    icon: <LogoutIcon />,
+    icon: <LogOut />,
     title: 'Log out',
     divider: true,
   },
@@ -95,16 +95,16 @@ function Header() {
         <Searching />
         {/* check logged */}
         <div className={cx('actions')}>
-          <Button styled="outline" to="/upload" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+          <Button styled="outline" to="/upload" leftIcon={<Plus />}>
             Upload
           </Button>
           {isLoggedIn ? (
             <React.Fragment>
               <ToolTipButton content="Messages" notifyCount={5}>
-                <MessagesIcon />
+                <Messages />
               </ToolTipButton>
               <ToolTipButton content="Inbox" notifyCount={5}>
-                <InboxIcon />
+                <Inbox />
               </ToolTipButton>
             </React.Fragment>
           ) : (
@@ -125,7 +125,7 @@ function Header() {
               </div>
             ) : (
               <button className={cx('dots_btn')}>
-                <FontAwesomeIcon icon={faEllipsisVertical} />
+                <DotsVertical />
               </button>
             )}
           </Menu>

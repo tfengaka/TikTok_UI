@@ -1,10 +1,10 @@
-import { faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import React, { useEffect, useRef } from 'react';
 import { searchingUsers } from '~/apis/searchApi';
 import { DropdownWrapper } from '~/components/Dropdown';
+import { Clear, Search } from '~/components/Icons';
+import Loading from '~/components/Loading';
 import { useDebounce } from '~/hooks';
 import AccountList from './components/AccountList';
 import styles from './Search.module.scss';
@@ -92,16 +92,16 @@ function Searching() {
           />
           <div className={cx('input_action')}>
             {isLoading ? (
-              <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />
+              <Loading className={cx('loading')} />
             ) : (
               <button className={cx('clear')} onClick={() => handleClearSearchInput()}>
-                <FontAwesomeIcon icon={faCircleXmark} />
+                <Clear />
               </button>
             )}
           </div>
           <span className={cx('splitter')}></span>
           <button className={cx('search_btn')} onMouseDown={(e) => e.preventDefault()}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <Search />
           </button>
         </div>
       </HeadlessTippy>
