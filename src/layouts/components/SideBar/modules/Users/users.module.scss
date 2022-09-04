@@ -1,0 +1,83 @@
+.container {
+  position: relative;
+  padding: 16px 0;
+  color: rgba(22, 24, 35, 0.75);
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, 0.12);
+    transform: scaleY(0.5);
+  }
+  &_title {
+    display: block;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 8px;
+    margin-bottom: 8px;
+  }
+}
+.accountItem {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 6px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    background: rgba(22, 24, 35, 0.04);
+  }
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    flex-grow: 1;
+    &.nickname {
+      display: flex;
+      align-items: center;
+      h4 {
+        font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-top: -2px;
+        color: rgb(22, 24, 35);
+      }
+    }
+    &.tick {
+      height: 100%;
+      margin-left: 6px;
+      color: rgb(32, 213, 236);
+    }
+    &.fullname {
+      font-family: var(--font-family);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(22, 24, 35, 0.75);
+    }
+  }
+}
+
+.showMore_btn {
+  background-color: transparent;
+  color: rgb(254, 44, 85);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0px 8px;
+  margin-top: 8px;
+
+  cursor: pointer;
+}

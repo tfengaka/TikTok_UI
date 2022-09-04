@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Checked } from '../Icons';
-import ViewImage from '../ViewImage';
-import styles from './AccountItem.module.scss';
+import { Checked } from '~/components/Icons';
+import ViewImage from '~/components/ViewImage';
+import styles from '../Search.module.scss';
 
 const cx = classNames.bind(styles);
 

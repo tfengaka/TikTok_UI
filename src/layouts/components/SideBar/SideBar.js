@@ -1,17 +1,16 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import { NavMenu } from './modules';
 import {
   GroupUserOutline,
-  HomeOutline,
-  LiveOutline,
-  HomeSolid,
   GroupUserSolid,
+  HomeOutline,
+  HomeSolid,
+  LiveOutline,
   LiveSolid,
 } from '~/components/Icons';
+import { UsersContainer, FollowingUsers, NavMenu, SuggestedUsers } from './modules';
 
-import styles from './Sidebar.module.scss';
 import config from '~/config';
+import styles from './Sidebar.module.scss';
 const cx = classNames.bind(styles);
 
 const NAV_LINK = [
@@ -50,6 +49,12 @@ function SideBar() {
             />
           ))}
         </NavMenu>
+        <UsersContainer title="Suggested accounts">
+          <SuggestedUsers />
+        </UsersContainer>
+        <UsersContainer title="Following accounts">
+          <FollowingUsers />
+        </UsersContainer>
       </div>
     </aside>
   );

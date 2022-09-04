@@ -143,3 +143,54 @@
     background: rgba(22, 24, 35, 0.12);
   }
 }
+//* Account Item
+.account {
+  padding: 9px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.05);
+  }
+}
+.avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  padding: 0px;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.info {
+  flex: 0 1 auto;
+  min-width: 0px;
+  &_nickname {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+    span {
+      font-family: var(--font-family);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+  }
+  &_verified {
+    color: rgb(32, 213, 236);
+  }
+  &_name {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+    overflow: hidden;
+  }
+}

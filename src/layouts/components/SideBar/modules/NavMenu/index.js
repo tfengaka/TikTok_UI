@@ -1,5 +1,5 @@
 import NavMenu from './NavMenu';
-import NavItem from './NavItem';
+import NavItem from './components/NavItem';
 
 NavMenu.Item = NavItem;
 

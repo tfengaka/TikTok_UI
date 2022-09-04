@@ -20,7 +20,7 @@ import Menu from '~/components/Menu';
 import ToolTipButton from '~/components/ToolTipButton';
 import ViewImage from '~/components/ViewImage';
 import config from '~/config';
-import Searching from '../Seaching/Searching';
+import Searching from '../Seaching';
 
 import styles from './Header.module.scss';
 const cx = classNames.bind(styles);

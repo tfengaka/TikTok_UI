@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AccountItem from '~/components/AccountItem';
+import AccountItem from './AccountItem';
 
 function AccountList({ data }) {
   return (
