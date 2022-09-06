@@ -1,20 +1,21 @@
 import classNames from 'classnames/bind';
-import styles from '../users.module.scss';
-import UserItem from './UserItem';
+import React from 'react';
+import PropTypes from 'prop-types';
 
+import styles from '../users.module.scss';
+import AccountItem from './UserItem';
 const cx = classNames.bind(styles);
 
-function FollowingUsers() {
+function FollowingUsers({ userList }) {
   return (
-    <>
-      {Array(2)
-        .fill(0)
-        .map((item, index) => (
-          <UserItem key={index} />
-        ))}
+    <React.Fragment>
+      {userList.length > 0 &&
+        userList.map((user, index) => <AccountItem key={index} data={user} preview={false} />)}
       <button className={cx('showMore_btn')}>See more</button>
-    </>
+    </React.Fragment>
   );
 }
-
+FollowingUsers.propTypes = {
+  userList: PropTypes.array,
+};
 export default FollowingUsers;

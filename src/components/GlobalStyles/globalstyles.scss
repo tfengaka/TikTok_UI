@@ -46,6 +46,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: rgb(22, 24, 35);
   overflow-y: overlay;
 }
 
@@ -83,7 +84,7 @@ h6 {
   margin-inline-end: 0px;
 }
 
-// Fonts emmbeded
+// Fonts
 @font-face {
   font-family: ProximaNova;
   src: url("/assets/fonts/Proxima-Nova-Regular.woff2");

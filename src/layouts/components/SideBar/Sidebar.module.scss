@@ -1,4 +1,5 @@
 .sidebar {
+  flex-shrink: 0;
   width: 356px;
   max-width: 100%;
   overflow-x: hidden;
@@ -7,6 +8,8 @@
   perspective: 1px;
   transform-style: preserve-3d;
   perspective-origin: right top;
+  max-height: calc(929px - var(--header-height));
+  overflow-y: auto;
   .wrapper {
     padding: 20px 0 26px 8px;
     min-height: 100%;

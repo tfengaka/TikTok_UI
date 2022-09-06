@@ -10,3 +10,13 @@ export const searchingUsers = async (searchQuery, type) => {
 
   return response.data;
 };
+
+export const getSuggestedUsers = async (page = 1, limit = 5) => {
+  const response = await axiosClient.get('users/suggested', {
+    params: {
+      page: page,
+      per_page: limit,
+    },
+  });
+  return response.data;
+};

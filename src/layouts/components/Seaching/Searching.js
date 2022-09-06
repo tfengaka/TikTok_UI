@@ -1,7 +1,7 @@
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import React, { useEffect, useRef } from 'react';
-import { searchingUsers } from '~/apis/searchApi';
+import { searchingUsers } from '~/apis/userApi';
 import { DropdownWrapper } from '~/components/Dropdown';
 import { Clear, Search } from '~/components/Icons';
 import Loading from '~/components/Loading';

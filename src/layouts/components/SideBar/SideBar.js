@@ -11,6 +11,8 @@ import { UsersContainer, FollowingUsers, NavMenu, SuggestedUsers } from './modul
 
 import config from '~/config';
 import styles from './Sidebar.module.scss';
+import { useEffect, useState } from 'react';
+import { getSuggestedUsers } from '~/apis/userApi';
 const cx = classNames.bind(styles);
 
 const NAV_LINK = [
@@ -35,6 +37,19 @@ const NAV_LINK = [
 ];
 
 function SideBar() {
+  const [suggestedUsers, setSuggestedUsers] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const users = await getSuggestedUsers();
+        setSuggestedUsers(users.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
   return (
     <aside className={cx('sidebar')}>
       <div className={cx('wrapper')}>
@@ -50,10 +65,10 @@ function SideBar() {
           ))}
         </NavMenu>
         <UsersContainer title="Suggested accounts">
-          <SuggestedUsers />
+          <SuggestedUsers userList={suggestedUsers} />
         </UsersContainer>
         <UsersContainer title="Following accounts">
-          <FollowingUsers />
+          <FollowingUsers userList={suggestedUsers} />
         </UsersContainer>
       </div>
     </aside>
